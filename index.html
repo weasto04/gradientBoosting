@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gradient Boosting (Regression) – Minimal Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gradient Boosting – Stepwise Residuals (No frameworks)</h1>
+      <div class="controls">
+        <button id="regen">Regenerate data</button>
+        <label class="small"><input type="checkbox" id="togglePoints" checked /> show points</label>
+        <span class="legend">
+          <span class="swatch green"></span> parabola (left, temporary)
+          <span class="swatch purple"></span> model prediction
+          <span class="swatch red"></span> residual points (right)
+        </span>
+      </div>
+      <p class="hint">Left: shallow tree (depth 2) fit to data. Right: residuals (red) and a depth-2 tree approximating them (purple). Parabola appears briefly when regenerating.</p>
+    </header>
+    <main class="grid">
+      <section class="panel">
+        <h2>Base fit (depth 2)</h2>
+        <canvas id="plotLeft" width="900" height="520" aria-label="left plot"></canvas>
+      </section>
+      <section class="panel">
+        <h2>Residuals and residual fit (depth 2)</h2>
+        <canvas id="plotRight" width="900" height="520" aria-label="right plot"></canvas>
+      </section>
+      <section class="panel">
+        <h2>Combined prediction (base + residual) with original points</h2>
+        <canvas id="plotBottomLeft" width="900" height="520" aria-label="bottom left plot"></canvas>
+      </section>
+      <section class="panel">
+        <h2>Residual of combined and next residual fit (depth 2)</h2>
+        <canvas id="plotBottomRight" width="900" height="520" aria-label="bottom right plot"></canvas>
+      </section>
+      <section class="panel">
+        <h2>Final prediction (base + residual1 + residual2) with original points</h2>
+        <canvas id="plotRow3Left" width="900" height="520" aria-label="row 3 left plot"></canvas>
+      </section>
+      <section class="panel">
+        <h2>Residuals of final prediction and residual fit (depth 2)</h2>
+        <canvas id="plotRow3Right" width="900" height="520" aria-label="row 3 right plot"></canvas>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+  </html>
